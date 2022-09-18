@@ -18,11 +18,11 @@ import Axios from 'axios';
 import Users from "./components/index.vue";
 
 Vue.prototype.$http = Axios;
-Vue.prototype.$convert = Convert;
-const token = localStorage.getItem('token');
-if(token){
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-}
+// Vue.prototype.$convert = Convert;
+// const token = localStorage.getItem('token');
+// if(token){
+//   Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+// }
 if(process.env.NODE_ENV === 'production') Vue.prototype.$http.defaults.baseURL = 'http://192.168.0.156';
 Vue.prototype.$http.defaults.baseURL = 'http://brunch.dev';
 
@@ -40,6 +40,5 @@ new Vue({
   el: '#app',
   router: router,
   render: h => h(App),
-  vuetify,
-  store: store
+  vuetify
 })
